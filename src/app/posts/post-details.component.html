@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <main class="post blog-post col-lg-8" *ngIf="post">
+      <div class="container">
+        <div class="post-single">
+          <div class="post-thumbnail"><img [src]="post.thumb_original" alt="..." class="img-fluid"></div>
+          <div class="post-details">
+            <div class="post-meta d-flex justify-content-between">
+              <div class="category">
+                <a [routerLink]="['/category', category.slug]" *ngFor="let category of post.categories">{{
+                  category.name }}
+                </a>
+              </div>
+            </div>
+            <h1>{{ post.title }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+            <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+              <a class="author d-flex align-items-center flex-wrap">
+                <div class="avatar"><img src="/assets/img/avatar-1.jpg" alt="..." class="img-fluid"></div>
+                <div class="title"><span>{{ post.author }}</span></div>
+              </a>
+              <div class="d-flex align-items-center flex-wrap">
+                <div class="date"><i class="icon-clock"></i> {{ post.created_at }}</div>
+                <!-- <div class="views"><i class="icon-eye"></i> 500</div> -->
+                <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comments_nr }}</div>
+              </div>
+            </div>
+            <div class="post-body" [innerHTML]="post.content">
+
+            </div>
+            <div class="post-tags">
+              <a class="tag" [routerLink]="['/category', category.slug]" *ngFor="let category of post.categories">#{{
+                category.name }}</a>
+            </div>
+
+            <app-posts-nav [post]="post"></app-posts-nav>
+
+            <app-post-comments [post]="post" [comments]="post.comments"></app-post-comments>
+            <app-add-comment [post]="post"></app-add-comment>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside class="col-lg-4">
+      <app-search-blog [redirect]="'/blog'"></app-search-blog>
+
+      <app-latest-posts></app-latest-posts>
+
+      <app-categories></app-categories>
+    </aside>
+  </div>
+</div>

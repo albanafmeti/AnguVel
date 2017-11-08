@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <!-- Latest Posts -->
+    <main class="posts-listing col-lg-8">
+      <div class="container">
+        <div class="row">
+          <!-- post -->
+          <div class="post col-xl-6" *ngFor="let post of posts">
+            <div class="post-thumbnail"><a [routerLink]="['/post', post.slug]"><img
+              [src]="post.thumb_md" alt="..." class="img-fluid"></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date meta-last">{{ post.created_at }}</div>
+                <div class="category">
+                  <a [routerLink]="['/category', category.slug]" *ngFor="let category of post.categories">{{
+                    category.name }}
+                  </a>
+                </div>
+              </div>
+              <a [routerLink]="['/post', post.slug]">
+                <h3 class="h4">{{ post.title }}</h3></a>
+              <p class="text-muted">{{ post.small_content }}</p>
+              <footer class="post-footer d-flex align-items-center"><a href="#"
+                                                                       class="author d-flex align-items-center flex-wrap">
+                <div class="avatar"><img src="/assets/img/avatar-3.jpg" alt="..." class="img-fluid"></div>
+                <div class="title"><span>{{ post.author }}</span></div>
+              </a>
+                <div class="date"><i class="icon-clock"></i> {{ post.created_at }}</div>
+                <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comments_nr }}</div>
+              </footer>
+            </div>
+          </div>
+
+          <p class="text-center" *ngIf="!posts.length" style="width: 100%;">No results found.</p>
+        </div>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-template d-flex justify-content-center">
+            <li class="page-item"><a class="page-link" (click)="goToPage(1)"> <i
+              class="fa fa-angle-double-left"></i></a>
+            </li>
+            <li class="page-item"><a class="page-link" (click)="prevPage()"> <i
+              class="fa fa-angle-left"></i></a></li>
+
+            <li class="page-item" *ngIf="prev"><a class="page-link" (click)="goToPage(prev)">{{ prev }}</a></li>
+
+            <li class="page-item"><a class="page-link active">{{ meta.current_page }}</a></li>
+
+            <li class="page-item" *ngIf="next"><a class="page-link" (click)="goToPage(next)">{{ next }}</a></li>
+            <li class="page-item"><a class="page-link" (click)="nextPage()"> <i class="fa fa-angle-right"></i></a>
+            </li>
+            <li class="page-item"><a class="page-link" (click)="goToPage(meta.last_page)"> <i
+              class="fa fa-angle-double-right"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+    <aside class="col-lg-4">
+      <app-search-blog (notifySearch)="onSearch($event)"></app-search-blog>
+
+      <app-latest-posts></app-latest-posts>
+
+      <app-categories></app-categories>
+    </aside>
+
+  </div>
+</div>

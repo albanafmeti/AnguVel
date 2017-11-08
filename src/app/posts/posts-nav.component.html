@@ -1,0 +1,19 @@
+<div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
+
+  <a *ngIf="previous" [routerLink]="['/post', previous.slug]"
+     class="prev-post text-left d-flex align-items-center">
+    <div class="icon prev"><i class="fa fa-angle-left"></i></div>
+    <div class="text"><strong class="text-primary">Previous Post </strong>
+      <h6>{{ previous.title }}</h6>
+    </div>
+  </a>
+
+  <a *ngIf="next" [routerLink]="['/post', next.slug]"
+     class="next-post text-right d-flex align-items-center justify-content-end">
+    <div class="text"><strong class="text-primary">Next Post </strong>
+      <h6>{{ next.title }}</h6>
+    </div>
+    <div class="icon next"><i class="fa fa-angle-right"> </i></div>
+  </a>
+
+</div>

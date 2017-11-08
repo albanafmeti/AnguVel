@@ -1,0 +1,46 @@
+<!-- Intro Section-->
+<section class="intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="h3 text-center">Sign In</h2>
+          </div>
+          <div class="card-block">
+            <form #form="ngForm" class="form" role="form" novalidate>
+
+              <p class="alert alert-danger text-center" *ngIf="errorMessage">
+                {{ errorMessage }}
+              </p>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input #email="ngModel" type="email" name="email" id="email" class="form-control"
+                       [(ngModel)]="userEmail"
+                       required/>
+                <span style="color:darkred" *ngIf="email.invalid && email.touched">Email is required.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input #password="ngModel" type="password" name="password" id="password" class="form-control"
+                       [(ngModel)]="userPassword"
+                       required/>
+                <span style="color:darkred" *ngIf="password.invalid && password.touched">Password is required.</span>
+              </div>
+
+              <div style="margin-top:10px" class="form-group">
+                <div class="controls">
+                  <button [disabled]="!form.valid" class="btn btn-primary btn-block" (click)="login()">Login</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

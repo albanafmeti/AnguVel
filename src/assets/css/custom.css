@@ -1,0 +1,43 @@
+.pagination .page-item {
+  cursor: pointer;
+}
+
+.widget.latest-posts strong {
+  font-size: 14px;
+}
+
+footer.main-footer .copyrights {
+  margin-top: 50px;
+}
+
+section.hero .container {
+  padding: 110px 20px;
+}
+
+section.intro, section.divider {
+  padding: 80px 0;
+}
+
+.navbar {
+  z-index: 1000
+}
+
+.ui-select-choices {
+  display: block;
+}
+
+section {
+  padding: 50px 0;
+}
+
+@media (min-width: 992px) {
+  .align-items-stretch {
+    max-height: 324px;
+    overflow: hidden;
+  }
+
+  section.featured-posts .image {
+    max-height: 324px;
+    overflow: hidden;
+  }
+}

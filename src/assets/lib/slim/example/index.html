@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Slim Examples</title>
+
+    <link rel="stylesheet" href="css/slim.min.css">
+
+    <style>
+        /* center main column */
+        html {
+            font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        main {
+            max-width:400px;
+            margin:0 auto;
+        }
+    </style>
+
+</head>
+<body>
+
+<main>
+
+    <h1>Examples</h1>
+
+    <h2>Async</h2>
+
+    <h3>Upload new image</h3>
+
+    <div class="slim" data-service="async.php">
+        <input type="file"/>
+    </div>
+
+
+    <h3>Upload and edit existing image</h3>
+
+    <div class="slim" data-service="async.php" id="my-cropper">
+        <input type="file"/>
+        <img src="media/dune.jpg" alt="">
+    </div>
+
+    <button id="remove-button" type="button">Remove image</button>
+
+    <script>
+
+        // load this code when the document has loaded
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // get a reference to the remove button
+            var button = document.querySelector('#remove-button');
+
+            // listen to clicks on the remove button
+            button.addEventListener('click', function() {
+
+                // get the element with id 'my-cropper'
+                var element = document.querySelector('#my-cropper');
+
+                // find the cropper attached to the element
+                var cropper = Slim.find(element);
+
+                // call the remove method on the cropper
+                cropper.remove();
+
+            });
+
+
+        });
+
+    </script>
+
+
+    <h3>Edit existing image only</h3>
+
+    <div class="slim" data-service="async.php">
+        <img src="media/dune.jpg" alt="">
+    </div>
+
+
+    <h3>Upload and remove images</h3>
+
+    <script>
+        function handleImageRemoval(data) {
+
+            // can't continue without server file name
+            if (!data.server) { return; }
+
+            // setup request and send
+            var name = data.server.file;
+            var url = './async-remove.php';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url + (url.indexOf('?')===-1?'?':':') + 'name=' + name, true);
+            xhr.send();
+
+        }
+    </script>
+
+    <div class="slim" data-service="async.php" data-did-remove="handleImageRemoval">
+        <input type="file"/>
+    </div>
+
+    <h2>Sync</h2>
+
+    <form action="sync.php" method="post" enctype="multipart/form-data">
+
+        <div class="slim">
+            <input type="file"/>
+        </div>
+
+        <button type="submit">Upload</button>
+
+    </form>
+
+</main>
+
+<script src="js/slim.kickstart.min.js"></script>
+
+</body>
+</html>

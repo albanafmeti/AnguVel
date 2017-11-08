@@ -1,0 +1,24 @@
+<!-- Newsletter Section-->
+<section class="newsletter no-padding-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h2>Abonohuni ne Newsletter</h2>
+        <p class="text-big">Per tu perditesuar vazhdimisht me artikujt me te fundit nga <span style="font-weight: bold">TeRejat.al</span>
+          abonohuni duke vendosur
+          email-in tuaj ne fushen e meposhtme.</p>
+      </div>
+      <div class="col-md-8">
+        <div class="form-holder">
+          <form action="#">
+            <div class="form-group">
+              <input type="email" name="email" id="email" placeholder="Vendos email-in tend"
+                     [(ngModel)]="email">
+              <button type="submit" class="submit" (click)="subscribe()">Abonohu</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
