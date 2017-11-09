@@ -23,11 +23,6 @@ export class AuthService {
   }
 
   authenticate(email: string, password: string): Observable<any> {
-    console.log('inside authenticate() - service');
-    console.log('Email: ' + email);
-    console.log('Pass: ' + password);
-    console.log('Client Id: ' + environment.client_id);
-    console.log('Client Secret: ' + environment.client_secret);
     return this._http.post(environment.appUrl + 'oauth/token', {
       grant_type: 'password',
       client_id: environment.client_id,
