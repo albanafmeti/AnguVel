@@ -21,10 +21,14 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
+    console.log('1: Clicked Login.');
     this._auth.authenticate(this.userEmail, this.userPassword).subscribe(
       response => {
+        console.log('2: response.createdTime = new Date().getTime();.');
         response.createdTime = new Date().getTime();
+        console.log('3: Cookie.set(\'tokenObj\', JSON.stringify(response), 1);');
         Cookie.set('tokenObj', JSON.stringify(response), 1);
+        console.log('4: this._router.navigateByUrl(\'/admin/dashboard\');');
         this._router.navigateByUrl('/admin/dashboard');
       },
       responseError => {

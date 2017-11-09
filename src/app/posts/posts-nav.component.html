@@ -7,6 +7,10 @@
       <h6>{{ previous.title }}</h6>
     </div>
   </a>
+  <a *ngIf="!previous" class="prev-post text-left d-flex align-items-center">
+    <div class="text"><strong class="text-primary">No Previous </strong>
+    </div>
+  </a>
 
   <a *ngIf="next" [routerLink]="['/post', next.slug]"
      class="next-post text-right d-flex align-items-center justify-content-end">
@@ -14,6 +18,10 @@
       <h6>{{ next.title }}</h6>
     </div>
     <div class="icon next"><i class="fa fa-angle-right"> </i></div>
+  </a>
+  <a *ngIf="!next" class="next-post text-right d-flex align-items-center justify-content-end">
+    <div class="text"><strong class="text-primary">No Next </strong>
+    </div>
   </a>
 
 </div>
