@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
         this._router.navigateByUrl('/admin/dashboard');
       },
       responseError => {
+        console.log('-1: this.errorMessage = responseError.error.message;');
         this.errorMessage = responseError.error.message;
+        console.log(responseError.error);
       }
     );
   }
