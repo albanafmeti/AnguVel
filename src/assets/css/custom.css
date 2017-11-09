@@ -1,3 +1,11 @@
+.navbar {
+  background: #0e0e0e;
+}
+
+.navbar-brand, .navbar .navbar-nav a.nav-link, .navbar .search-btn {
+  color: #fff;
+}
+
 .pagination .page-item {
   cursor: pointer;
 }
@@ -28,6 +36,16 @@ section.intro, section.divider {
 
 section {
   padding: 50px 0;
+}
+
+.logout-btn {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #ddd;
+  height: 20px;
+  line-height: 20px;
+  color: #fff !important;
+  cursor: pointer;
 }
 
 @media (min-width: 992px) {

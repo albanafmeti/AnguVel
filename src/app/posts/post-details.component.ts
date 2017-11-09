@@ -36,7 +36,11 @@ export class PostDetailsComponent implements OnInit {
       response => {
         this.post = response.data;
         this.titleService.setTitle(this.post.title + ' | Te Rejat');
-        this.meta.addTag({ name: 'og:url', content: this.document.location.href });
+        this.meta.addTag({name: 'og:url', content: this.document.location.href});
+        this.meta.addTag({name: 'og:type', content: 'article'});
+        this.meta.addTag({name: 'og:title', content: this.post.title});
+        this.meta.addTag({name: 'og:description', content: this.post.small_content});
+        this.meta.addTag({name: 'og:image', content: this.post.thumb_lg});
       },
       error => console.log(<any>error)
     );

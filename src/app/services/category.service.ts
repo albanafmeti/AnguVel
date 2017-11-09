@@ -11,7 +11,8 @@ export class CategoryService {
   accessToken: string;
   headers: any;
 
-  constructor(private _http: HttpClient, private _auth: AuthService) {
+  constructor(private _http: HttpClient,
+              private _auth: AuthService) {
     this.accessToken = this._auth.accessToken();
 
     this.headers = new HttpHeaders({

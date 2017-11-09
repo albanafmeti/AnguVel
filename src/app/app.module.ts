@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {SimpleNotificationsModule} from 'angular2-notifications';
+import {CookieModule} from 'ngx-cookie';
 
 import {AppComponent} from './app.component';
 import {FooterComponent} from './shared/footer.component';
@@ -21,8 +22,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FeaturedPostsComponent} from './home/featured-posts.component';
 import {LatestPostsHomeComponent} from './home/latest-posts-home.component';
 import {NewsletterComponent} from './home/newsletter.component';
-import { PostsNavComponent } from './posts/posts-nav.component';
-import { AdminModule } from './admin/admin.module';
+import {PostsNavComponent} from './posts/posts-nav.component';
+import {AdminModule} from './admin/admin.module';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { AdminModule } from './admin/admin.module';
     ]),
     BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
+    CookieModule.forRoot(),
     AdminModule,
   ],
   providers: [],

@@ -2,16 +2,17 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
+import {CookieService} from 'ngx-cookie';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient,
+              private _cookie: CookieService) {
   }
 
-  static isUserAuthenticated() {
-    const tokenStr = Cookie.get('tokenObj');
+  isUserAuthenticated() {
+    const tokenStr = this._cookie.get('tokenObj');
     if (tokenStr) {
       const tokenObj = JSON.parse(tokenStr);
       const currentTime = new Date().getTime();
@@ -20,6 +21,20 @@ export class AuthService {
       return (currentTime - createdTokenTime <= 7200000); // in miliseconds
     }
     return false;
+  }
+
+  accessToken() {
+    const tokenStr = this._cookie.get('tokenObj');
+    if (tokenStr) {
+      const tokenObj = JSON.parse(tokenStr);
+      return tokenObj.access_token;
+    }
+    return null;
+  }
+
+  logout() {
+    this._http.get(environment.apiUrl + 'auth/logout').subscribe(response => console.log(response));
+    this._cookie.remove('tokenObj');
   }
 
   authenticate(email: string, password: string): Observable<any> {
@@ -31,14 +46,5 @@ export class AuthService {
       password: password,
       scope: '*',
     });
-  }
-
-  accessToken() {
-    const tokenStr = Cookie.get('tokenObj');
-    if (tokenStr) {
-      const tokenObj = JSON.parse(tokenStr);
-      return tokenObj.access_token;
-    }
-    return null;
   }
 }

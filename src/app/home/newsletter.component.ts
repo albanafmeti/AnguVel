@@ -28,17 +28,17 @@ export class NewsletterComponent implements OnInit {
       response => {
         response = <any>response;
         if (response.success) {
-          this.notificationsService.success('Success', response.message);
+          this.notificationsService.success('Sukses', response.message);
         } else {
-          this.notificationsService.warn('Warning', response.message);
+          this.notificationsService.warn('Kujdes', response.message);
         }
       },
       errorResponse => {
         if (errorResponse.status !== 422) {
-          this.notificationsService.warn('Warning', 'Something went wrong.');
+          this.notificationsService.warn('Kujdes', 'Something went wrong.');
         } else {
           const errors = errorResponse.error.errors;
-          this.notificationsService.warn('Warning', errors[Object.keys(errors)[0]]);
+          this.notificationsService.warn('Kujdes', errors[Object.keys(errors)[0]]);
         }
       }
     );

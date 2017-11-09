@@ -1,6 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../services/category.service';
 import {EmitterService} from '../services/emitter.service';
+import {AuthService} from '../admin/auth/auth.service';
+import {Router} from '@angular/router';
 
 declare let $: any;
 
@@ -13,7 +15,9 @@ export class HeaderComponent implements OnInit {
   keywords: string;
   categories: any[] = [];
 
-  constructor(private _categoryService: CategoryService) {
+  constructor(private _categoryService: CategoryService,
+              private _router: Router,
+              private _auth: AuthService) {
   }
 
   ngOnInit() {
@@ -35,4 +39,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  public logout() {
+    this._auth.logout();
+    this._router.navigateByUrl('/admin/login');
+  }
+
+  public isLoggedIn() {
+    return this._auth.isUserAuthenticated();
+  }
 }

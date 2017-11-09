@@ -45,14 +45,14 @@
                 <td>{{ post.created_at }}</td>
                 <td>
                   <a [routerLink]="['/admin/posts/edit', post.slug]"
-                     class="btn btn-sm btn-outline-info">Edit</a>
+                     class="btn btn-sm btn-outline-info" title="Edit"><i class="fa fa-pencil"></i></a>
                   <button type="button" class="btn btn-sm btn-outline-danger" mwlConfirmationPopover
                           [title]="'Are you sure?'"
                           [message]="'Are you really sure you want to do this?'"
                           [confirmText]="'Yes'"
                           [confirmButtonType]="'danger'"
                           (confirm)="deletePost(post)"
-                          placement="left">Delete
+                          placement="left" title="Delete"><i class="fa fa-times"></i>
                   </button>
                 </td>
               </tr>

@@ -3,24 +3,24 @@
   <a *ngIf="previous" [routerLink]="['/post', previous.slug]"
      class="prev-post text-left d-flex align-items-center">
     <div class="icon prev"><i class="fa fa-angle-left"></i></div>
-    <div class="text"><strong class="text-primary">Previous Post </strong>
+    <div class="text"><strong class="text-primary">Paraardhes </strong>
       <h6>{{ previous.title }}</h6>
     </div>
   </a>
   <a *ngIf="!previous" class="prev-post text-left d-flex align-items-center">
-    <div class="text"><strong class="text-primary">No Previous </strong>
+    <div class="text"><strong class="text-primary">Nuk ka paraardhes </strong>
     </div>
   </a>
 
   <a *ngIf="next" [routerLink]="['/post', next.slug]"
      class="next-post text-right d-flex align-items-center justify-content-end">
-    <div class="text"><strong class="text-primary">Next Post </strong>
+    <div class="text"><strong class="text-primary">Pasardhes </strong>
       <h6>{{ next.title }}</h6>
     </div>
     <div class="icon next"><i class="fa fa-angle-right"> </i></div>
   </a>
   <a *ngIf="!next" class="next-post text-right d-flex align-items-center justify-content-end">
-    <div class="text"><strong class="text-primary">No Next </strong>
+    <div class="text"><strong class="text-primary">Nuk ka pasardhes</strong>
     </div>
   </a>
 

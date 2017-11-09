@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostService} from './services/post.service';
 import {CategoryService} from './services/category.service';
 import {EmitterService} from './services/emitter.service';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,22 @@ import {EmitterService} from './services/emitter.service';
   `,
   providers: [PostService, CategoryService, EmitterService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
 
   notificationOptions: any = {
     timeOut: 3000
   };
 
+  constructor(private router: Router) {
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
+  }
 }

@@ -4,6 +4,12 @@
   font-weight: 300;
 }
 
+.navbar .navbar-nav a.nav-link {
+  color: #333;
+}
+
 .navbar {
   border: none;
+  background: #fff;
+  z-index: 8;
 }

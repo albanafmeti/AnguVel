@@ -31,17 +31,17 @@ export class AddCommentComponent implements OnInit {
           this.userName = null;
           this.userComment = null;
           this.userEmail = null;
-          this.notificationsService.success('Success', response.message);
+          this.notificationsService.success('Sukses', response.message);
         } else {
-          this.notificationsService.error('Error', response.message);
+          this.notificationsService.error('Gabim', response.message);
         }
       },
       errorResponse => {
         if (errorResponse.status !== 422) {
-          this.notificationsService.warn('Warning', 'Something went wrong.');
+          this.notificationsService.warn('Kujdes', 'Dicka shkoi gabim.');
         } else {
           const errors = errorResponse.error.errors;
-          this.notificationsService.warn('Warning', errors[Object.keys(errors)[0]]);
+          this.notificationsService.warn('Kujdes', errors[Object.keys(errors)[0]]);
         }
       }
     );
