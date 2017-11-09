@@ -76,9 +76,9 @@
                 <div class="form-group row" *ngIf="categories.length">
                   <label for="inputAuthor" class="col-sm-12 col-form-label">Categories</label>
                   <div class="col-sm-12">
-                    <ng-select  [multiple]="true"
-                                [items]="categories"
-                                (data)="onCategoriesChanged($event)"></ng-select>
+                    <ng-select [multiple]="true"
+                               [items]="categories"
+                               (data)="onCategoriesChanged($event)"></ng-select>
                   </div>
                 </div>
 

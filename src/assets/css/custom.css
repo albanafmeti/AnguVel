@@ -48,6 +48,29 @@ section {
   cursor: pointer;
 }
 
+/* Styling for the Slim Loading Progress Bar container */
+.slim-loading-bar {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+
+/* Styling for the Slim Loading Progress Bar itself */
+.slim-loading-bar-progress {
+  margin: 0;
+  padding: 0;
+  z-index: 99998;
+  background-color: rgba(46, 204, 113,1.0);
+  color: rgba(46, 204, 113,1.0);
+  box-shadow: 0 0 10px 0; /* Inherits the font color */
+  height: 2px;
+  opacity: 0;
+}
+
 @media (min-width: 992px) {
   .align-items-stretch {
     max-height: 324px;

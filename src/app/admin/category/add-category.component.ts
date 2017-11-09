@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../../services/category.service';
 import {NotificationsService} from 'angular2-notifications';
 import {Router} from '@angular/router';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 @Component({
   selector: 'app-add-category',
@@ -16,7 +17,9 @@ export class AddCategoryComponent implements OnInit {
 
   constructor(private _categoryService: CategoryService,
               private notifications: NotificationsService,
-              private router: Router) {
+              private router: Router,
+              private _loadBar: SlimLoadingBarService) {
+    this._loadBar.color = '#ef5285';
   }
 
   ngOnInit() {
@@ -27,12 +30,15 @@ export class AddCategoryComponent implements OnInit {
   }
 
   createCategory() {
+    this._loadBar.start();
     this._categoryService.storeCategory({
       name: this.name,
       slug: this.slug,
       description: this.description,
       order: this.order
     }).subscribe(response => {
+      this._loadBar.complete();
+
       if (response.success) {
 
         this.notifications.success('Success', response.message);
@@ -43,6 +49,7 @@ export class AddCategoryComponent implements OnInit {
       }
       return this.notifications.error('Error', response.message);
     }, errorResponse => {
+      this._loadBar.complete();
       if (errorResponse.status !== 422) {
         return this.notifications.warn('Warning', 'Something went wrong.');
       } else {

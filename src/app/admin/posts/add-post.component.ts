@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {NotificationsService} from 'angular2-notifications';
 import {CategoryService} from '../../services/category.service';
 import {PostService} from '../../services/post.service';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 @Component({
   selector: 'app-add-post',
@@ -38,7 +39,10 @@ export class AddPostComponent implements OnInit {
   constructor(private _postService: PostService,
               private _categoryService: CategoryService,
               private notifications: NotificationsService,
-              private router: Router) {
+              private router: Router,
+              private _loadBar: SlimLoadingBarService) {
+
+    this._loadBar.color = '#ef5285';
   }
 
   ngOnInit() {
@@ -84,7 +88,9 @@ export class AddPostComponent implements OnInit {
       this.formData.append('categories', JSON.stringify(this.selectedCategories));
     }
 
+    this._loadBar.start();
     this._postService.storePost(this.formData).subscribe(response => {
+      this._loadBar.complete();
       if (response.success) {
 
         this.notifications.success('Success', response.message);
@@ -95,6 +101,7 @@ export class AddPostComponent implements OnInit {
       }
       return this.notifications.error('Error', response.message);
     }, errorResponse => {
+      this._loadBar.complete();
       if (errorResponse.status !== 422) {
         return this.notifications.warn('Warning', 'Something went wrong.');
       } else {

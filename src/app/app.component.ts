@@ -8,6 +8,7 @@ import {NavigationEnd, Router} from '@angular/router';
   selector: 'app-root',
   template: `
     <div>
+      <ng2-slim-loading-bar col></ng2-slim-loading-bar>
       <simple-notifications [options]="notificationOptions"></simple-notifications>
       <app-header></app-header>
       <router-outlet></router-outlet>

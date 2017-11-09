@@ -114,11 +114,6 @@ export class PostService {
           }
         };
 
-        xhr.upload.onprogress = (event) => {
-          const progress = Math.round(event.loaded / event.total * 100);
-          // console.log(progress);
-        };
-
         xhr.open('POST', environment.apiUrl + 'posts/store', true);
 
         xhr.setRequestHeader('Accept', 'application/json');
@@ -155,11 +150,6 @@ export class PostService {
               });
             }
           }
-        };
-
-        xhr.upload.onprogress = (event) => {
-          const progress = Math.round(event.loaded / event.total * 100);
-          // console.log(progress);
         };
 
         xhr.open('POST', environment.apiUrl + 'posts/' + slug + '/update', true);

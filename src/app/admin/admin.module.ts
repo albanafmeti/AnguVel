@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {SelectModule} from 'ng2-select';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
 import {LoginComponent} from './auth/login.component';
 import {AuthService} from './auth/auth.service';
@@ -42,7 +43,8 @@ import {Slim} from '../../assets/lib/slim/slim/slim.angular2';
       confirmButtonType: 'default'
     }),
     CKEditorModule,
-    SelectModule
+    SelectModule,
+    SlimLoadingBarModule.forRoot()
   ],
   declarations: [
     LoginComponent,
@@ -56,7 +58,8 @@ import {Slim} from '../../assets/lib/slim/slim/slim.angular2';
     EditPostComponent,
     Slim
   ],
-  providers: [AuthService, AuthGuard]
+  providers: [AuthService, AuthGuard],
+  exports: [SlimLoadingBarModule]
 })
 export class AdminModule {
 }
