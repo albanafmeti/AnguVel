@@ -20,6 +20,7 @@ import {PostsComponent} from './posts/posts.component';
 import {AddPostComponent} from './posts/add-post.component';
 import {EditPostComponent} from './posts/edit-post.component';
 import {Slim} from '../../assets/lib/slim/slim/slim.angular2';
+import {TinymceComponent} from '../shared/tinymce.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import {Slim} from '../../assets/lib/slim/slim/slim.angular2';
     PostsComponent,
     AddPostComponent,
     EditPostComponent,
-    Slim
+    Slim,
+    TinymceComponent
   ],
   providers: [AuthService, AuthGuard],
   exports: [SlimLoadingBarModule]
