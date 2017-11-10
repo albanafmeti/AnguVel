@@ -3,7 +3,7 @@
   RewriteBase /
 
   RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet)
-  RewriteRule   "^(.+)"  "http://api.terejat.al/$1"  [R,L]
+  RewriteRule   "^(.*)"  "http://api.terejat.al/$1"  [R,L]
 
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
