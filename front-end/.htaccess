@@ -1,6 +1,3 @@
-Alias /api /var/www/clients/client1/web25/web/api/
-DocumentRoot "/var/www/clients/client1/web25/web/dist"
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -12,5 +9,4 @@ DocumentRoot "/var/www/clients/client1/web25/web/dist"
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
-
 </IfModule>
