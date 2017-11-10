@@ -6,6 +6,10 @@
   color: #fff;
 }
 
+.navbar .navbar-toggler span {
+  background: #fff;
+}
+
 .pagination .page-item {
   cursor: pointer;
 }

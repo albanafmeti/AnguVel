@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   appUrl: 'http://localhost:8000/',
-  apiUrl: 'http://localhost:8000/api/v1/',
+  apiUrl: 'http://localhost:8000/v1/',
   client_id: '3',
   client_secret: 'wKO3TalpECsJEAI4VUL2rTKjCPIY5Ry8NedSSPmL'
 };

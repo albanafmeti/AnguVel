@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {CookieModule} from 'ngx-cookie';
+import {ShareButtonsModule } from 'ngx-sharebuttons';
 
 import {AppComponent} from './app.component';
 import {FooterComponent} from './shared/footer.component';
@@ -61,6 +62,7 @@ import {AdminModule} from './admin/admin.module';
     SimpleNotificationsModule.forRoot(),
     CookieModule.forRoot(),
     AdminModule,
+    ShareButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

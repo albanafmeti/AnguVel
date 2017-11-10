@@ -32,6 +32,13 @@
                 category.name }}</a>
             </div>
 
+            <div class="text-center mt-4">
+              <share-buttons [theme]="'circles'"
+                             [include]="['facebook','twitter','linkedin','google','whatsapp','email','print']"
+                             [show]="14"
+                             [size]="1"></share-buttons>
+            </div>
+
             <app-posts-nav [post]="post"></app-posts-nav>
 
             <app-post-comments [post]="post" [comments]="post.comments"></app-post-comments>
