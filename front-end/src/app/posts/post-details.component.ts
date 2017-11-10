@@ -13,12 +13,16 @@ export class PostDetailsComponent implements OnInit {
 
   post: any;
 
+  currentUrl: string;
+
   constructor(private _postService: PostService,
               private _route: ActivatedRoute,
               private router: Router,
               private titleService: Title,
               private meta: Meta,
               @Inject(DOCUMENT) private document: Document) {
+
+    this.currentUrl = this.document.location.href;
   }
 
   ngOnInit() {
