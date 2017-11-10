@@ -1,5 +1,7 @@
+<VirtualHost *:80>
 Alias /api /var/www/clients/client1/web25/web/back-end/public
 DocumentRoot "/var/www/clients/client1/web25/web/front-end/dist"
+</VirtualHost>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -12,5 +14,4 @@ DocumentRoot "/var/www/clients/client1/web25/web/front-end/dist"
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
-
 </IfModule>
