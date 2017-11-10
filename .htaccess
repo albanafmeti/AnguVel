@@ -14,3 +14,4 @@ DocumentRoot "/var/www/clients/client1/web25/web/dist"
   RewriteRule . /index.html [L]
 
 </IfModule>
+
