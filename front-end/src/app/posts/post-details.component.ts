@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnChanges, OnInit} from '@angular/core';
 import {Title, Meta} from '@angular/platform-browser';
 import {DOCUMENT} from '@angular/common';
 import {PostService} from '../services/post.service';
@@ -39,6 +39,9 @@ export class PostDetailsComponent implements OnInit {
     this._postService.getPost(slug).subscribe(
       response => {
         this.post = response.data;
+
+        this.currentUrl = this.document.location.href;
+
         this.titleService.setTitle(this.post.title + ' | Te Rejat');
         this.meta.addTag({name: 'og:url', content: this.document.location.href});
         this.meta.addTag({name: 'og:type', content: 'article'});
