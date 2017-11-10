@@ -1,5 +1,5 @@
-Alias /api /var/www/clients/client1/web25/web/api/
-DocumentRoot "/var/www/clients/client1/web25/web/dist"
+Alias /api /var/www/clients/client1/web25/web/back-end/public
+DocumentRoot "/var/www/clients/client1/web25/web/front-end/dist"
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -14,4 +14,3 @@ DocumentRoot "/var/www/clients/client1/web25/web/dist"
   RewriteRule . /index.html [L]
 
 </IfModule>
-
