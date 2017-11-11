@@ -36,5 +36,10 @@ Route::prefix("v1")->group(function () {
         Route::post('froala/image/delete', 'Api\FroalaController@imageDelete');
     });
 
-    Route::post('froala/image/upload', 'Api\FroalaController@imageUpload');
+    Route::prefix("froala")->group(function () {
+        Route::post('file/upload', 'Api\FroalaController@imageUpload');
+        Route::post('image/upload', 'Api\FroalaController@imageUpload');
+        Route::get('image/manager/load', 'Api\FroalaController@imageManagerLoad');
+        Route::post('image/manager/delete', 'Api\FroalaController@imageManagerDelete');
+    });
 });

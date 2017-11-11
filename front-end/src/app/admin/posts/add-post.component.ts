@@ -51,14 +51,14 @@ export class AddPostComponent implements OnInit {
   ngOnInit() {
 
     this.editorOptions = {
+      zIndex: 20000,
       placeholderText: 'Insert content of the post.',
-      height: 500,
-      charCounterCount: false,
+      heightMin: 400,
       imageUploadURL: environment.apiUrl + 'froala/image/upload',
+      fileUploadURL: environment.apiUrl + 'froala/file/upload',
+      imageManagerLoadURL: environment.apiUrl + 'froala/image/manager/load',
+      imageManagerDeleteURL: environment.apiUrl + 'froala/image/manager/delete',
       events: {
-        'froalaEditor.focus': function (e, editor) {
-          console.log(editor.selection.get());
-        },
         'froalaEditor.image.removed': function (e, editor, $img) {
           console.log('removed');
           console.log(this._froala);
