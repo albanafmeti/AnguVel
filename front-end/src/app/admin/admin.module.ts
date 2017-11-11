@@ -3,9 +3,9 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
-import {CKEditorModule} from 'ng2-ckeditor';
 import {SelectModule} from 'ng2-select';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 
 import {LoginComponent} from './auth/login.component';
 import {AuthService} from './auth/auth.service';
@@ -20,7 +20,7 @@ import {PostsComponent} from './posts/posts.component';
 import {AddPostComponent} from './posts/add-post.component';
 import {EditPostComponent} from './posts/edit-post.component';
 import {Slim} from '../../assets/lib/slim/slim/slim.angular2';
-import {TinymceComponent} from '../shared/tinymce.component';
+import {FroalaService} from '../services/froala.service';
 
 @NgModule({
   imports: [
@@ -43,9 +43,10 @@ import {TinymceComponent} from '../shared/tinymce.component';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'default'
     }),
-    CKEditorModule,
     SelectModule,
-    SlimLoadingBarModule.forRoot()
+    SlimLoadingBarModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   declarations: [
     LoginComponent,
@@ -57,10 +58,9 @@ import {TinymceComponent} from '../shared/tinymce.component';
     PostsComponent,
     AddPostComponent,
     EditPostComponent,
-    Slim,
-    TinymceComponent
+    Slim
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, FroalaService],
   exports: [SlimLoadingBarModule]
 })
 export class AdminModule {

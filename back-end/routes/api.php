@@ -32,5 +32,9 @@ Route::prefix("v1")->group(function () {
         Route::post('posts/store', 'Api\PostController@store');
         Route::post('posts/{post}/update', 'Api\PostController@update');
         Route::delete('posts/{post}/delete', 'Api\PostController@delete');
+
+        Route::post('froala/image/delete', 'Api\FroalaController@imageDelete');
     });
+
+    Route::post('froala/image/upload', 'Api\FroalaController@imageUpload');
 });

@@ -4,6 +4,8 @@ import {NotificationsService} from 'angular2-notifications';
 import {CategoryService} from '../../services/category.service';
 import {PostService} from '../../services/post.service';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+import {environment} from '../../../environments/environment';
+import {FroalaService} from '../../services/froala.service';
 
 @Component({
   selector: 'app-add-post',
@@ -23,7 +25,8 @@ export class AddPostComponent implements OnInit {
 
   formData: any;
 
-  editorConfig: any;
+  categories = [];
+  selectedCategories = [];
 
   slimOptions = {
     download: false,
@@ -33,24 +36,39 @@ export class AddPostComponent implements OnInit {
     didSave: this.saveImage.bind(this)
   };
 
-  categories = [];
-  selectedCategories = [];
+  public editorOptions: Object;
 
   constructor(private _postService: PostService,
               private _categoryService: CategoryService,
               private notifications: NotificationsService,
               private router: Router,
-              private _loadBar: SlimLoadingBarService) {
+              private _loadBar: SlimLoadingBarService,
+              private _froala: FroalaService) {
 
     this._loadBar.color = '#ef5285';
   }
 
   ngOnInit() {
-    this.editorConfig = {
-      height: 450,
-      createLanguageService: 'sq',
-      contentsCss: ['/assets/css/bootstrap.min.css', '/assets/css/style.default.css', '/assets/css/custom.css']
+
+    this.editorOptions = {
+      placeholderText: 'Insert content of the post.',
+      height: 500,
+      charCounterCount: false,
+      imageUploadURL: environment.apiUrl + 'froala/image/upload',
+      events: {
+        'froalaEditor.focus': function (e, editor) {
+          console.log(editor.selection.get());
+        },
+        'froalaEditor.image.removed': function (e, editor, $img) {
+          console.log('removed');
+          console.log(this._froala);
+          this._froala.deleteImage($img.attr('src')).subscribe(response => {
+            console.log(response);
+          });
+        }.bind(this)
+      }
     };
+
     this._categoryService.getCategories().subscribe(
       response => {
 

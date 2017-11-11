@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "barryvdh/laravel-cors": "^0.10.0",
         "fideloper/proxy": "~3.3",
+        "froala/wysiwyg-editor-php-sdk": "^1.0",
         "fzaninotto/faker": "^1.7",
         "jenssegers/date": "^3.2",
         "laravel/framework": "5.5.*",

@@ -17,8 +17,6 @@ export class EditPostComponent implements OnInit {
 
   formData: any;
 
-  editorConfig: any;
-
   slimOptions = {
     download: false,
     minSize: '750,500',
@@ -38,11 +36,6 @@ export class EditPostComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.editorConfig = {
-      height: 450,
-      createLanguageService: 'sq',
-      contentsCss: ['/assets/css/bootstrap.min.css', '/assets/css/style.default.css', '/assets/css/custom.css']
-    };
     this._route.params.subscribe(params => {
       this.slug = params['slug'];
       this.getPost(params['slug']);
