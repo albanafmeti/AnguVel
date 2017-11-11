@@ -1,0 +1,88 @@
+.navbar {
+  background: #0e0e0e;
+}
+
+.navbar-brand, .navbar .navbar-nav a.nav-link, .navbar .search-btn {
+  color: #fff;
+}
+
+.navbar .navbar-toggler span {
+  background: #fff;
+}
+
+.pagination .page-item {
+  cursor: pointer;
+}
+
+.widget.latest-posts strong {
+  font-size: 14px;
+}
+
+footer.main-footer .copyrights {
+  margin-top: 50px;
+}
+
+section.hero .container {
+  padding: 110px 20px;
+}
+
+section.intro, section.divider {
+  padding: 80px 0;
+}
+
+.navbar {
+  z-index: 1000
+}
+
+.ui-select-choices {
+  display: block;
+}
+
+section {
+  padding: 50px 0;
+}
+
+.logout-btn {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #ddd;
+  height: 20px;
+  line-height: 20px;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+/* Styling for the Slim Loading Progress Bar container */
+.slim-loading-bar {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+
+/* Styling for the Slim Loading Progress Bar itself */
+.slim-loading-bar-progress {
+  margin: 0;
+  padding: 0;
+  z-index: 99998;
+  background-color: rgba(46, 204, 113,1.0);
+  color: rgba(46, 204, 113,1.0);
+  box-shadow: 0 0 10px 0; /* Inherits the font color */
+  height: 2px;
+  opacity: 0;
+}
+
+@media (min-width: 992px) {
+  .align-items-stretch {
+    max-height: 324px;
+    overflow: hidden;
+  }
+
+  section.featured-posts .image {
+    max-height: 324px;
+    overflow: hidden;
+  }
+}
