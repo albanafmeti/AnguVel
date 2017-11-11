@@ -1,2 +1,3 @@
 /thumbs/*
 /posts/*
+!/posts/empty.txt
