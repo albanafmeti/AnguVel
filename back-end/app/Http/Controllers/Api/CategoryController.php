@@ -94,7 +94,7 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:50',
-            'slug' => 'required|alpha_dash|unique:categories,slug,' . $category->id . ',id,deleted_at,NULL',
+            'slug' => 'required|alpha_dash|unique:categories,slug,' . $category->id,
             'order' => 'required|numeric'
         ]);
 
