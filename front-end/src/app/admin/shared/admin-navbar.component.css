@@ -8,8 +8,20 @@
   color: #333;
 }
 
+.navbar .navbar-toggler span {
+  background: #333;
+}
+
 .navbar {
   border: none;
   background: #fff;
   z-index: 8;
 }
+
+@media (max-width: 991px) {
+  .navbar-toggleable-md > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+

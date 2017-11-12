@@ -64,9 +64,7 @@ export class AddPostComponent implements OnInit {
           $('.fr-wrapper').find('a[href="https://www.froala.com/wysiwyg-editor?k=u"]').remove();
         },
         'froalaEditor.image.removed': function (e, editor, $img) {
-          console.log(this._froala);
           this._froala.deleteImage($img.attr('src')).subscribe(response => {
-            console.log(response);
           });
         }.bind(this)
       }

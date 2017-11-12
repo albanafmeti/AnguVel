@@ -27,7 +27,7 @@ export class EditPostComponent implements OnInit {
   slimOptions = {
     download: false,
     minSize: '750,500',
-    instantEdit: true,
+    instantEdit: false,
     rotate: true,
     didSave: this.saveImage.bind(this),
     initialImage: null
@@ -60,10 +60,7 @@ export class EditPostComponent implements OnInit {
           $('.fr-wrapper').find('a[href="https://www.froala.com/wysiwyg-editor?k=u"]').remove();
         },
         'froalaEditor.image.removed': function (e, editor, $img) {
-          console.log('removed');
-          console.log(this._froala);
           this._froala.deleteImage($img.attr('src')).subscribe(response => {
-            console.log(response);
           });
         }.bind(this)
       }

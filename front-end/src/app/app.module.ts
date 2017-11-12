@@ -25,6 +25,7 @@ import {LatestPostsHomeComponent} from './home/latest-posts-home.component';
 import {NewsletterComponent} from './home/newsletter.component';
 import {PostsNavComponent} from './posts/posts-nav.component';
 import {AdminModule} from './admin/admin.module';
+import {NotFoundComponent} from './shared/not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {AdminModule} from './admin/admin.module';
     PostCommentsComponent,
     AddCommentComponent,
     CategoryPostsComponent,
-    PostsNavComponent
+    PostsNavComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import {AdminModule} from './admin/admin.module';
       {path: 'category/:slug', component: CategoryPostsComponent},
       {path: 'home', component: HomeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: '**', redirectTo: 'home', pathMatch: 'full'}
+      {path: '**', component: NotFoundComponent}
     ]),
     BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
