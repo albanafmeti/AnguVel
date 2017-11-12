@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {environment} from '../../../environments/environment';
 import {FroalaService} from '../../services/froala.service';
+declare let $: any;
 
 @Component({
   selector: 'app-edit-post',
@@ -55,6 +56,9 @@ export class EditPostComponent implements OnInit {
       imageManagerLoadURL: environment.apiUrl + 'froala/image/manager/load',
       imageManagerDeleteURL: environment.apiUrl + 'froala/image/manager/delete',
       events: {
+        'froalaEditor.initialized': function (e, editor, $img) {
+          $('.fr-wrapper').find('a[href="https://www.froala.com/wysiwyg-editor?k=u"]').remove();
+        },
         'froalaEditor.image.removed': function (e, editor, $img) {
           console.log('removed');
           console.log(this._froala);
