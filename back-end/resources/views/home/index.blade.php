@@ -9,7 +9,7 @@
     <meta property="og:title" content="TeRejat.al - Kliko dhe Informohu | Te Rejat"/>
     <meta property="og:description" content="Njihuni me informacionet me te fundit nga vendi dhe bota duke naviguar ne artikujt e
           portalit tone. Fokusohemi kryesisht ne showbiz, lifestyle dhe sport. Navigim te kendshem!"/>
-    <!-- <meta property="og:image" content=""/> -->
+    <meta property="og:image" content="{{ thumbnail('/assets/images/cover.png', 1200, 630, 'background') }}"/>
     <link rel="canonical" href=""/>
 
     <!-- Fonts -->
