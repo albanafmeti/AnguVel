@@ -24,7 +24,7 @@
                 <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comments_nr }}</div>
               </div>
             </div>
-            <div class="post-body" [innerHTML]="post.content">
+            <div class="post-body" [innerHTML]="post.content | safeHtml">
 
             </div>
             <div class="post-tags">

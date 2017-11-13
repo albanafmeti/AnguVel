@@ -26,6 +26,7 @@ import {NewsletterComponent} from './home/newsletter.component';
 import {PostsNavComponent} from './posts/posts-nav.component';
 import {AdminModule} from './admin/admin.module';
 import {NotFoundComponent} from './shared/not-found.component';
+import {SafeHtmlPipe} from './shared/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {NotFoundComponent} from './shared/not-found.component';
     AddCommentComponent,
     CategoryPostsComponent,
     PostsNavComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
