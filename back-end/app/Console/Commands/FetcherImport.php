@@ -42,11 +42,6 @@ class FetcherImport extends Command
      */
     public function handle()
     {
-        Mail::send('emails.test', [], function ($m) {
-            $m->from('hello@app.com', 'Your Application');
-            $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
-        });
-
         $fetchedPosts = FetchedPost::where('imported', '0')->get();
 
         foreach ($fetchedPosts as $fpost) {
@@ -83,8 +78,19 @@ class FetcherImport extends Command
                 $fpost->imported = '1';
                 $fpost->save();
             } catch (\Exception $ex) {
+                Mail::send('emails.test', ["dump" => $ex->getMessage()], function ($m) {
+                    $m->from('hello@app.com', 'Your Application');
+                    $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
+                });
+
                 continue;
             }
+
+            Mail::send('emails.test', ["dump" => 0], function ($m) {
+                $m->from('hello@app.com', 'Your Application');
+                $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
+            });
+
         }
     }
 }
