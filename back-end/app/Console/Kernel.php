@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\FetcherXing::class,
+        \App\Console\Commands\FetcherXingRandom::class,
         \App\Console\Commands\FetcherImport::class
     ];
 
@@ -25,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fetcher:xing')->everyFiveMinutes();
+        $schedule->command('fetcher:xing-random')->everyFiveMinutes();
         $schedule->command('fetcher:import')->everyTenMinutes();
     }
 

@@ -68,8 +68,8 @@ section {
   margin: 0;
   padding: 0;
   z-index: 99998;
-  background-color: rgba(46, 204, 113,1.0);
-  color: rgba(46, 204, 113,1.0);
+  background-color: rgba(46, 204, 113, 1.0);
+  color: rgba(46, 204, 113, 1.0);
   box-shadow: 0 0 10px 0; /* Inherits the font color */
   height: 2px;
   opacity: 0;
@@ -85,4 +85,13 @@ section {
     max-height: 324px;
     overflow: hidden;
   }
+}
+
+/* Other website contents style */
+
+.captionposhte > .tit {
+  margin: 8px 0;
+  font-size: 12px;
+  border-top: 1px solid grey;
+  width: 100%;
 }
