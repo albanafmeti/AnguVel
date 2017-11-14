@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Date\Date;
 
@@ -17,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Carbon::setLocale(config('app.locale'));
         Date::setLocale(config('app.locale'));
+        Schema::defaultStringLength(191);
     }
 
     /**
