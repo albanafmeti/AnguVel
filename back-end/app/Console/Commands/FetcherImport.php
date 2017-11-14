@@ -6,7 +6,6 @@ use App\Category;
 use App\FetchedPost;
 use App\Post;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 
 class FetcherImport extends Command
@@ -44,6 +43,12 @@ class FetcherImport extends Command
     {
         $fetchedPosts = FetchedPost::where('imported', '0')->get();
 
+        Mail::send('emails.test', ["dump" => $fetchedPosts], function ($m) {
+            $m->from('hello@app.com', 'Your Application');
+            $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
+        });
+
+
         foreach ($fetchedPosts as $fpost) {
 
             try {
@@ -78,19 +83,8 @@ class FetcherImport extends Command
                 $fpost->imported = '1';
                 $fpost->save();
             } catch (\Exception $ex) {
-                Mail::send('emails.test', ["dump" => $ex->getMessage()], function ($m) {
-                    $m->from('hello@app.com', 'Your Application');
-                    $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
-                });
-
                 continue;
             }
-
-            Mail::send('emails.test', ["dump" => 0], function ($m) {
-                $m->from('hello@app.com', 'Your Application');
-                $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
-            });
-
         }
     }
 }
