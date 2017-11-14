@@ -27,8 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('fetcher:import')->everyMinute();
         $schedule->command('fetcher:xing-random')->everyFiveMinutes();
-        $schedule->command('fetcher:import')->everyTenMinutes();
     }
 
     /**
