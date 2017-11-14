@@ -15,7 +15,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['slug', 'title', 'subtitle', 'small_content', 'content', 'image', 'author', 'featured', 'enabled'];
+    protected $fillable = ['slug', 'title', 'subtitle', 'small_content', 'content', 'image', 'author', 'featured', 'enabled', 'fetched_post_id', 'type'];
 
     /**
      * The accessors to append to the model's array form.

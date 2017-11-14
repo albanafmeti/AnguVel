@@ -10,12 +10,14 @@
         "fideloper/proxy": "~3.3",
         "froala/wysiwyg-editor-php-sdk": "^1.0",
         "fzaninotto/faker": "^1.7",
+        "html2text/html2text": "^4.1",
         "jenssegers/date": "^3.2",
         "laravel/framework": "5.5.*",
         "laravel/passport": "^4.0",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "1.*",
-        "noisim/thumbnail": "dev-master"
+        "noisim/thumbnail": "dev-master",
+        "sunra/php-simple-html-dom-parser": "1.5.2"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
