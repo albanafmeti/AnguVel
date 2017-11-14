@@ -29,7 +29,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('fetcher:xing-random')->everyFiveMinutes();
         $schedule->command('fetcher:import')->everyTenMinutes();
-        $schedule->command('test:mail')->everyMinute();
     }
 
     /**
