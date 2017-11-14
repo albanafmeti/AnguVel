@@ -42,13 +42,12 @@ class FetcherImport extends Command
      */
     public function handle()
     {
-        $fetchedPosts = FetchedPost::where('imported', '0')->get();
+        $fetchedPosts = FetchedPost::where('imported', 0)->get();
 
         Mail::send('emails.test', ["dump" => $fetchedPosts], function ($m) {
             $m->from('hello@app.com', 'Your Application');
             $m->to("alban@terejat.al", "Alban Afmeti")->subject('Your Test!');
         });
-
 
         foreach ($fetchedPosts as $fpost) {
 
