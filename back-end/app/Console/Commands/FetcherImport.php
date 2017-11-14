@@ -6,7 +6,6 @@ use App\Category;
 use App\FetchedPost;
 use App\Post;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 
 class FetcherImport extends Command
