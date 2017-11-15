@@ -119,7 +119,7 @@ class FetcherRevistaClass extends Command
                         // Remove the first image which is the same with the main image
                         $textDom->find('p')[0]->outertext = "";
 
-                        foreach ($textDom->find('iframe') as &$iframe) {
+                        foreach ($textDom->find('div.rekmes') as &$iframe) {
                             $iframe->outertext = "";
                         }
 

@@ -99,7 +99,7 @@ class FetcherXingRandom extends Command
                 // Remove the first image which is the same with the main image
                 $textDom->find('p')[0]->outertext = "";
 
-                foreach ($textDom->find('iframe') as &$iframe) {
+                foreach ($textDom->find('iframe.mesdok') as &$iframe) {
                     $iframe->outertext = "";
                 }
 
