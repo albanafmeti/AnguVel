@@ -99,7 +99,7 @@ class Post extends Model
      */
     public function getThumbLgAttribute()
     {
-        return Thumbnail::thumbnail($this->attributes['image'], 1200, 630, 'background');
+        return Thumbnail::thumbnail($this->attributes['image'], 1200, 630, 'fit');
     }
 
     /**
