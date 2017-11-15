@@ -14,7 +14,7 @@ export class LatestPostsHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.limit = this.limit ? this.limit : 6;
+    this.limit = this.limit ? this.limit : 9;
     this._postService.latest(this.limit, {
       featured: '0'
     }).subscribe(

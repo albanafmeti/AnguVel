@@ -14,7 +14,7 @@ export class FeaturedPostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.limit = this.limit ? this.limit : 3;
+    this.limit = this.limit ? this.limit : 6;
     this._postService.latest(this.limit, {
       featured: '1'
     }).subscribe(
