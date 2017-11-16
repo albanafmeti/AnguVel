@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\FetcherXingRandom::class,
+        \App\Console\Commands\FetcherXing::class,
         \App\Console\Commands\FetcherRevistaClass::class,
         \App\Console\Commands\FetcherInTv::class,
         \App\Console\Commands\FetcherImport::class,
