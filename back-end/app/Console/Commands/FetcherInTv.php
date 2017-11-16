@@ -77,7 +77,7 @@ class FetcherInTv extends Command
                 $imgs = $dom->find('#article-container #article-img');
                 $image_url = (count($imgs)) ? $imgs[0]->src : null;
 
-                $element->image_url = $image_url;
+                $element->image_url = preg_replace('/\?.*/', '', $image_url);
 
                 $times = $dom->find('#article-container #article-date');
                 $time = (count($times)) ? $times[0]->innertext : null;
