@@ -128,6 +128,7 @@ class FetcherRevistaClass extends Command
                         }
 
                         $content = trim((string)$textDom);
+                        $content .= "<p>Burimi: <a href='http://revistaclass.al'>revistaclass.al</a></p>";
                         $element->content = $content;
 
                         $html = new \Html2Text\Html2Text($content);
