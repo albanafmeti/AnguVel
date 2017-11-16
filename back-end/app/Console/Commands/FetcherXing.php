@@ -104,7 +104,7 @@ class FetcherXing extends Command
                 }
 
                 $content = trim((string)$textDom);
-                $content .= "<p>Burimi: <a href='http://xing.al'>xing.al</a></p>";
+                $content .= "<p>Burimi - <a href='http://xing.al'>XING.AL</a></p>";
 
                 $html = new \Html2Text\Html2Text($content);
 

@@ -87,7 +87,7 @@ class FetcherInTv extends Command
                 $txts = $dom->find('#article-container #article-content');
                 $fullBody = (count($txts)) ? $txts[0]->innertext : null;
 
-                $fullBody .= "<p>Burimi: <a href='http://intv.al'>intv.al</a></p>";
+                $fullBody .= "<p>Burimi - <a href='http://intv.al'>INTV.AL</a></p>";
 
                 $content = trim($fullBody);
                 $element->content = $content;
