@@ -46,12 +46,6 @@ class FetcherImport extends Command
         foreach ($fetchedPosts as $fpost) {
 
             try {
-                $exist = Post::where('fetched_post_id', $fpost->fid)->first();
-
-                if ($exist) {
-                    continue;
-                }
-
                 $imgFilename = basename($fpost->image_url);
                 Image::make($fpost->image_url)->save(public_path('assets/images/posts/' . $imgFilename));
 
