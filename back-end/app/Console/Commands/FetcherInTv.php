@@ -92,14 +92,12 @@ class FetcherInTv extends Command
                 $content = trim($fullBody);
                 $element->content = $content;
 
-                dd($content);
-
                 $html = new \Html2Text\Html2Text($content);
                 $small_content = str_limit($html->getText(), 200);
                 $element->small_content = $small_content;
 
             } catch (\Exception $ex) {
-                dd($ex->getMessage());
+                continue;
             }
         }
 

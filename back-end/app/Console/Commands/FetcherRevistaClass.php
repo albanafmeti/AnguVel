@@ -136,7 +136,7 @@ class FetcherRevistaClass extends Command
                         $element->small_content = $small_content;
                     }
                 } catch (\Exception $ex) {
-                    dd($ex->getMessage());
+                    continue;
                 }
 
                 $this->info("Finished fetching category: " . $subcateg['name']);
