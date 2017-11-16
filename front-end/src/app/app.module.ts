@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {CookieModule} from 'ngx-cookie';
 import {ShareButtonsModule} from 'ngx-sharebuttons';
+import {FacebookModule} from 'ngx-facebook';
 
 import {AppComponent} from './app.component';
 import {FooterComponent} from './shared/footer.component';
@@ -27,6 +28,7 @@ import {PostsNavComponent} from './posts/posts-nav.component';
 import {AdminModule} from './admin/admin.module';
 import {NotFoundComponent} from './shared/not-found.component';
 import {SafeHtmlPipe} from './shared/safe-html.pipe';
+import {FbLoginComponent} from './fb/fb-login.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import {SafeHtmlPipe} from './shared/safe-html.pipe';
     CategoryPostsComponent,
     PostsNavComponent,
     NotFoundComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    FbLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import {SafeHtmlPipe} from './shared/safe-html.pipe';
       {path: 'post/:slug', component: PostDetailsComponent},
       {path: 'category/:slug', component: CategoryPostsComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'fb/login', component: FbLoginComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: NotFoundComponent}
     ]),
@@ -65,7 +69,8 @@ import {SafeHtmlPipe} from './shared/safe-html.pipe';
     SimpleNotificationsModule.forRoot(),
     CookieModule.forRoot(),
     AdminModule,
-    ShareButtonsModule.forRoot()
+    ShareButtonsModule.forRoot(),
+    FacebookModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
