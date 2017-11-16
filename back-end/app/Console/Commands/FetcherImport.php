@@ -46,6 +46,13 @@ class FetcherImport extends Command
         foreach ($fetchedPosts as $fpost) {
 
             try {
+
+                if (trim($fpost->small_content) == "") {
+                    $fpost->imported = '1';
+                    $fpost->save();
+                    continue;
+                }
+
                 $imgFilename = basename($fpost->image_url);
                 Image::make($fpost->image_url)->save(public_path('assets/images/posts/' . $imgFilename));
 
