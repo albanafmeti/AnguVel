@@ -30,8 +30,8 @@ class FbAppsController extends Controller
                 "user_id" => $request->id,
                 "user_name" => $request->name,
                 "image_url" => url("assets/images/fb/apps/1000/results/{$request->id}.jpg"),
-                "title" => "",
-                "description" => "",
+                "title" => "Çfare makine do te keni pas 10 vitesh?",
+                "description" => "Zbuloni makinen tuaj te ardhshme. Klikoni ketu dhe zbuloni!",
                 "data" => json_encode([
                     "car" => $car
                 ])
