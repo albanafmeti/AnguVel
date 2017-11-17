@@ -51,7 +51,7 @@ class FbAppsController extends Controller
                 "success" => true,
                 "data" => [
                     "imageUrl" => $imageUrl,
-                    "link" => url("/fb/apps/1000?userId=" . $fbAppResult->user_id),
+                    "link" => "http://terejat.al/fb/apps/1000?userId=" . $fbAppResult->user_id,
                     "car" => "Lamborghini",
                     "result" => $fbAppResult
                 ]
