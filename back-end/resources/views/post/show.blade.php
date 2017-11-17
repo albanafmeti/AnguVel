@@ -10,5 +10,4 @@
     <meta property="og:description" content="{{ $post->small_content }}"/>
     <meta property="og:image"
           content="{{ $post->thumb_lg }}"/>
-
 @endsection

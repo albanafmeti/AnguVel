@@ -95,6 +95,11 @@ class FbAppsController extends Controller
                     "name" => "Lamborghini"
                 ];
                 break;
+            default:
+                return [
+                    "file" => 'lamborghini.jpg',
+                    "name" => "Lamborghini"
+                ];
         }
     }
 }
