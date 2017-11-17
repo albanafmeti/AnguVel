@@ -18,10 +18,27 @@ class FbAppsController extends Controller
         if (!$fbAppResult) {
 
             $exists = false;
-            $car = $this->calculateCar($request->id);
+            $car = (object)$this->calculateCar($request->id);
 
             $userProfilePic = Image::make($request->picture['data']['url'])->fit(250, 250);
-            $carPic = Image::make(public_path("assets/images/fb/apps/1000/cars/$car"))->fit(1200, 630);
+
+
+            $userProfilePic = $userProfilePic->rectangle(0, 0, 250, 250, function ($draw) {
+                //$draw->background('rgba(255, 255, 255, 0.5)');
+                $draw->border(5, '#292b2c');
+            });
+
+
+            $carPic = Image::make(public_path("assets/images/fb/apps/1000/cars/$car->file"))->fit(1200, 630);
+
+            // use callback to define details
+            $carPic = $carPic->text($car->name, 585, 50, function ($font) {
+                $font->file(public_path('/fonts/Vollkorn_SC/VollkornSC-Regular.ttf'));
+                $font->size(50);
+                $font->color('#fff');
+                $font->align('center');
+                $font->valign('top');
+            });
 
             $canvas = Image::canvas(1200, 630);
             $canvas->insert($carPic, 'center');
@@ -32,8 +49,8 @@ class FbAppsController extends Controller
                 "user_id" => $request->id,
                 "user_name" => $request->name,
                 "image_url" => url("assets/images/fb/apps/1000/results/{$request->id}.jpg"),
-                "title" => "Çfare makine do te keni pas 10 vitesh?",
-                "description" => "Zbuloni makinen tuaj te ardhshme. Klikoni ketu dhe zbuloni!",
+                "title" => "Çfare automjeti do te keni pas 10 vitesh?",
+                "description" => "Zbuloni makinen tuaj te ardhshme. Kliko linkun, provoje dhe ti!",
                 "data" => json_encode([
                     "car" => $car
                 ])
@@ -43,10 +60,10 @@ class FbAppsController extends Controller
         if ($fbAppResult) {
 
             if (isset($car)) {
-                $imageUrl = thumbnail("fb/apps/1000/cars/$car", 1200, 630);
+                $imageUrl = thumbnail("fb/apps/1000/cars/$car->file", 1200, 630);
             } else {
                 $data = json_decode($fbAppResult->data);
-                $imageUrl = thumbnail("fb/apps/1000/cars/$data->car", 1200, 630);
+                $imageUrl = thumbnail("fb/apps/1000/cars/{$data->car->file}", 1200, 630);
             }
 
             return response()->json([
@@ -73,7 +90,10 @@ class FbAppsController extends Controller
         $number = (int)$arr[0] + (int)$arr[1];
         switch ($number) {
             case 12:
-                return 'lamborghini.jpg';
+                return [
+                    "file" => 'lamborghini.jpg',
+                    "name" => "Lamborghini"
+                ];
                 break;
         }
     }

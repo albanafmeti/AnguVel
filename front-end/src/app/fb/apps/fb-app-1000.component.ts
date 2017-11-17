@@ -5,6 +5,7 @@ import {environment} from '../../../environments/environment';
 import {FbAppsService} from '../../services/fb-apps.service';
 import {DOCUMENT} from '@angular/common';
 import {Router} from '@angular/router';
+import {NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-fb-app-1000',
@@ -17,11 +18,17 @@ export class FbApp1000Component implements OnInit {
   userName: string;
   currentUrl: string;
 
+  shareText: string;
+  shareLink: string;
+
+  disableShare = false;
+
   constructor(private fb: FacebookService,
               private _cookie: CookieService,
               private _fbApps: FbAppsService,
               @Inject(DOCUMENT) private document: Document,
-              private router: Router) {
+              private router: Router,
+              private notifications: NotificationsService) {
 
     const initParams: InitParams = {
       appId: environment.fb_app_id,
@@ -53,7 +60,7 @@ export class FbApp1000Component implements OnInit {
     this.fb.api('/me?fields=id,name,picture.type(large)')
       .then((res: any) => {
         // this.currentUrl = this.document.location.href + '?userId=' + res.id;
-        this.currentUrl = 'http://terejat/al/fb/apps/1000?userId=' + res.id;
+        this.currentUrl = 'http://terejat.al/fb/apps/1000?userId=' + res.id;
         this.getResult(res);
       })
       .catch(error => console.log(error));
@@ -63,24 +70,24 @@ export class FbApp1000Component implements OnInit {
     this._fbApps.appResult_1000(data).subscribe(response => {
         if (response.success) {
           this.userName = response.data.result.user_name;
-          this.resultImg = response.data.imageUrl;
+          this.resultImg = response.data.result.image_url;
 
-          if (!response.data.exists) {
-            this.postFeed(response.data);
-          }
+          this.shareText = 'Une do te kem pas 10 vitesh ' + response.data.car + '. Zbulojeni edhe ju! :D :D';
+          this.shareLink = response.data.link;
         }
       },
       errorReponse => console.log(errorReponse)
     );
   }
 
-  postFeed(data) {
+  shareFeed() {
     this.fb.api('/me/feed', 'post', {
-      message: 'Une do te kem pas 10 vitesh makine ' + data.car + '. Provoni edhe ju! :D :D',
-      link: data.link
+      message: this.shareText,
+      link: this.shareLink
     })
       .then((res: any) => {
-        console.log(res);
+        this.disableShare = true;
+        this.notifications.success('Urime', 'Ju sapo e shperndate kete ne FACEBOOK.');
       })
       .catch(error => console.log(error));
   }
