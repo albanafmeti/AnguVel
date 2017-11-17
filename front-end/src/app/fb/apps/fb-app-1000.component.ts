@@ -61,10 +61,14 @@ export class FbApp1000Component implements OnInit {
 
   getResult(data) {
     this._fbApps.appResult_1000(data).subscribe(response => {
-        this.userName = response.data.result.user_name;
-        this.resultImg = response.data.imageUrl;
+        if (response.success) {
+          this.userName = response.data.result.user_name;
+          this.resultImg = response.data.imageUrl;
 
-        this.postFeed(response.data);
+          if (!response.data.exists) {
+            this.postFeed(response.data);
+          }
+        }
       },
       errorReponse => console.log(errorReponse)
     );

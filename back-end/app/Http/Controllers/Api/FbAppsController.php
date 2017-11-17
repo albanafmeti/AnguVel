@@ -13,9 +13,11 @@ class FbAppsController extends Controller
     public function appResult_1000(Request $request)
     {
         $fbAppResult = FbAppResult::where("user_id", $request->id)->first();
+        $exists = true;
 
         if (!$fbAppResult) {
 
+            $exists = false;
             $car = $this->calculateCar($request->id);
 
             $userProfilePic = Image::make($request->picture['data']['url'])->fit(250, 250);
@@ -53,6 +55,7 @@ class FbAppsController extends Controller
                     "imageUrl" => $imageUrl,
                     "link" => "http://terejat.al/fb/apps/1000?userId=" . $fbAppResult->user_id,
                     "car" => "Lamborghini",
+                    "exists" => $exists,
                     "result" => $fbAppResult
                 ]
             ]);
