@@ -43,7 +43,6 @@ class FbAppsController extends Controller
             if (isset($car)) {
                 $imageUrl = thumbnail("fb/apps/1000/cars/$car", 1200, 630);
             } else {
-                dd($fbAppResult->data);
                 $data = json_decode($fbAppResult->data);
                 $imageUrl = thumbnail("fb/apps/1000/cars/$data->car", 1200, 630);
             }
