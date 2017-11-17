@@ -29,6 +29,9 @@ import {AdminModule} from './admin/admin.module';
 import {NotFoundComponent} from './shared/not-found.component';
 import {SafeHtmlPipe} from './shared/safe-html.pipe';
 import {FbLoginComponent} from './fb/fb-login.component';
+import {FbAppsComponent} from './fb/fb-apps.component';
+import {FbAppsService} from './services/fb-apps.service';
+import {FbApp1000Component} from './fb/apps/fb-app-1000.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import {FbLoginComponent} from './fb/fb-login.component';
     PostsNavComponent,
     NotFoundComponent,
     SafeHtmlPipe,
-    FbLoginComponent
+    FbLoginComponent,
+    FbAppsComponent,
+    FbApp1000Component
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,8 @@ import {FbLoginComponent} from './fb/fb-login.component';
       {path: 'category/:slug', component: CategoryPostsComponent},
       {path: 'home', component: HomeComponent},
       {path: 'fb/login', component: FbLoginComponent},
+      {path: 'fb/apps', component: FbAppsComponent},
+      {path: 'fb/apps/1000', component: FbApp1000Component},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: NotFoundComponent}
     ]),
@@ -72,7 +79,7 @@ import {FbLoginComponent} from './fb/fb-login.component';
     ShareButtonsModule.forRoot(),
     FacebookModule.forRoot()
   ],
-  providers: [],
+  providers: [FbAppsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

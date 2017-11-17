@@ -178,8 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Noisim\Thumbnail\ThumbnailServiceProvider::class,
-        Jenssegers\Date\DateServiceProvider::class
-
+        Jenssegers\Date\DateServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*

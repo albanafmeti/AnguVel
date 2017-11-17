@@ -1,0 +1,14 @@
+.fb-app {
+  border: 1px solid transparent;
+}
+
+.fb-app:hover {
+  border: 1px solid deeppink;
+  cursor: pointer;
+}
+
+.play-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

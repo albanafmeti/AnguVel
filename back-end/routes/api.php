@@ -42,4 +42,8 @@ Route::prefix("v1")->group(function () {
         Route::get('image/manager/load', 'Api\FroalaController@imageManagerLoad');
         Route::post('image/manager/delete', 'Api\FroalaController@imageManagerDelete');
     });
+
+    Route::prefix("fb/apps")->group(function () {
+        Route::post('1000/result', 'Api\FbAppsController@appResult_1000');
+    });
 });

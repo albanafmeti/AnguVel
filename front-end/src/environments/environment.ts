@@ -5,8 +5,10 @@
 
 export const environment = {
   production: false,
+  domainUrl: 'http://localhost:4200/',
   appUrl: 'http://localhost:8000/',
   apiUrl: 'http://localhost:8000/v1/',
   client_id: '3',
-  client_secret: 'wKO3TalpECsJEAI4VUL2rTKjCPIY5Ry8NedSSPmL'
+  client_secret: 'wKO3TalpECsJEAI4VUL2rTKjCPIY5Ry8NedSSPmL',
+  fb_app_id: '513153505703978'
 };

@@ -1,0 +1,23 @@
+<section class="intro">
+  <div class="container" *ngIf="resultImg">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="h3 text-center">{{ userName }}</h2>
+        <p class="text-big text-center">- Makina juaj pas 10 vitesh -</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <img [src]="resultImg" width="100%" style="margin-bottom: 15px; border: 2px solid #0e0e0e;"/>
+
+        <div class="text-center">
+          <share-buttons [theme]="'circles'"
+                         [include]="['facebook','twitter','linkedin','google','whatsapp','email','print']"
+                         [show]="14"
+                         [size]="1"
+                         [url]="currentUrl"></share-buttons>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -11,6 +11,7 @@
         "froala/wysiwyg-editor-php-sdk": "^1.0",
         "fzaninotto/faker": "^1.7",
         "html2text/html2text": "^4.1",
+        "intervention/image": "^2.4",
         "jenssegers/date": "^3.2",
         "laravel/framework": "5.5.*",
         "laravel/passport": "^4.0",
