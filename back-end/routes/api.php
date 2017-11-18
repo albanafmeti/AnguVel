@@ -44,6 +44,6 @@ Route::prefix("v1")->group(function () {
     });
 
     Route::prefix("fb/apps")->group(function () {
-        Route::post('1000/result', 'Api\FbAppsController@appResult_1000');
+        Route::post('{appId}/result', 'Api\FbAppsController@result');
     });
 });

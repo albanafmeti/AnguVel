@@ -18,5 +18,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/post/{post}', 'PostController@show');
 
 Route::prefix("fb/apps")->group(function () {
-    Route::get('1000', 'FbAppsController@appResult_1000');
+    Route::get('{appId}', 'FbAppsController@result');
 });
