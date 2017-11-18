@@ -66,6 +66,7 @@ class FbAppsController extends Controller
                 $imageUrl = thumbnail("fb/apps/1000/cars/$car->file", 1200, 630);
             } else {
                 $data = json_decode($fbAppResult->data);
+                $car = $data->car;
                 $imageUrl = thumbnail("fb/apps/1000/cars/{$data->car->file}", 1200, 630);
             }
 
@@ -74,7 +75,7 @@ class FbAppsController extends Controller
                 "data" => [
                     "imageUrl" => $imageUrl,
                     "link" => "http://terejat.al/fb/apps/1000?userId=" . $fbAppResult->user_id,
-                    "car" => "Lamborghini",
+                    "car" => $car->name,
                     "exists" => $exists,
                     "result" => $fbAppResult
                 ]

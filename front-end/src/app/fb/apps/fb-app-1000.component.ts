@@ -9,8 +9,7 @@ import {NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-fb-app-1000',
-  templateUrl: './fb-app-1000.component.html',
-  styleUrls: ['./fb-app-1000.component.css']
+  templateUrl: './fb-app-1000.component.html'
 })
 export class FbApp1000Component implements OnInit {
 
