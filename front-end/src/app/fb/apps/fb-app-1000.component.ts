@@ -71,7 +71,6 @@ export class FbApp1000Component implements OnInit {
           this.userName = response.data.result.user_name;
           this.resultImg = response.data.result.image_url;
 
-          this.shareText = 'Une do te kem pas 10 vitesh ' + response.data.car + '. Zbulojeni edhe ju! :D :D';
           this.shareLink = response.data.link;
         }
       },
