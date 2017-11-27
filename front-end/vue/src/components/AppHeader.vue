@@ -20,7 +20,8 @@
       <div class="container">
         <!-- Navbar Brand -->
         <div class="navbar-header d-flex align-items-center justify-content-between">
-          <!-- Navbar Brand --><a href="#" class="navbar-brand">Te Rejat</a>
+          <!-- Navbar Brand -->
+          <router-link to="/" class="navbar-brand">Te Rejat</router-link>
           <!-- Toggle Button-->
           <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse"
                   aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
@@ -31,7 +32,8 @@
         <div id="navbarcollapse" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <!-- Search-->
-            <li class="nav-item"><a href="#" class="nav-link">Kryefaqe</a></li>
+
+            <li class="nav-item"><router-link to="/" class="nav-link">Kryefaqe</router-link></li>
             <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
             <li class="nav-item hidden-md-down"><a class="nav-link"> | </a></li>
           </ul>
