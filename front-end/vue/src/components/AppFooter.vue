@@ -1,0 +1,47 @@
+<template>
+  <!-- Page Footer-->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="logo">
+            <h6 class="text-white">Te Rejat</h6>
+          </div>
+          <div class="contact-details">
+            <p>Cel: (+355) 66 406 4062</p>
+            <p>Email: <a href="mailto:info@terejat.al">info@TeRejat.al</a></p>
+            <ul class="social-menu">
+              <li class="list-inline-item"><a href="https://facebook.com/terejat.al"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="list-inline-item"><a href="https://twitter.com/terejatal"><i class="fa fa-twitter"></i></a>
+              </li>
+              <!-- <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <div class="fb-page" data-href="https://www.facebook.com/terejat.al" data-small-header="true"
+               data-adapt-container-width="true" data-hide-cover="true"
+               data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/terejat.al" class="fb-xfbml-parse-ignore"><a
+              href="https://www.facebook.com/terejat.al">TeRejat.al</a></blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyrights">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>&copy; 2017. All rights reserved. Te Rejat.</p>
+          </div>
+          <div class="col-md-6 text-right">
+            <p>Developed by <a href="http://techalin.com" class="text-white">TechAlin</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
