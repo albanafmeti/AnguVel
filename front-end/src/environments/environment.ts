@@ -9,6 +9,6 @@ export const environment = {
   appUrl: 'http://localhost:8000/',
   apiUrl: 'http://localhost:8000/v1/',
   client_id: '3',
-  client_secret: 'wKO3TalpECsJEAI4VUL2rTKjCPIY5Ry8NedSSPmL',
-  fb_app_id: '513153505703978'
+  client_secret: 'your-passport-app-secret',
+  fb_app_id: 'your-app-id'
 };
